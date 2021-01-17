@@ -23,7 +23,6 @@ class _HomePageState extends State<HomePage> {
     bool serviceEnabled;
     LocationPermission permission;
     Position pos;
-    List<String> places;
     WeatherData data;
 
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
@@ -45,28 +44,20 @@ class _HomePageState extends State<HomePage> {
             'Location permissions are denied (actual value: $permission).');
       }
     }
+
     setState(() {
       loaded = false;
     });
-    pos = await Geolocator.getCurrentPosition();
-    places = await _determinePlaces(
-        pos.latitude.toString(), pos.longitude.toString());
-    data = await _getWeather(
-        places[0], pos.latitude.toString(), pos.longitude.toString());
 
-    print(places);
+    pos = await Geolocator.getCurrentPosition();
+    data = await _getWeather(
+        "Cupertino", pos.latitude.toString(), pos.longitude.toString());
 
     setState(() {
       _currentPosition = pos;
       _weatherData = data;
-      cities = places;
       loaded = true;
     });
-  }
-
-  Future<List<String>> _determinePlaces(String lat, String long) async {
-    List<String> data = await APIS().getNearbyLocations(lat, long);
-    return data;
   }
 
   Future<WeatherData> _getWeather(
@@ -151,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
-                    fontSize: 25),
+                    fontSize: 30),
               ),
               SizedBox(
                 height: 5,
@@ -161,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
-                    fontSize: 12),
+                    fontSize: 14),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 3,
@@ -170,7 +161,7 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w300,
-                      fontSize: 60)),
+                      fontSize: 70)),
               SizedBox(
                 height: 5,
               ),
@@ -178,8 +169,14 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w300,
-                      fontSize: 15)),
+                      fontSize: 16)),
+              SizedBox(
+                height: 10,
+              ),
               Divider(color: Colors.white),
+              SizedBox(
+                height: 10,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
