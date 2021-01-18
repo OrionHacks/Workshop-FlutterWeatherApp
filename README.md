@@ -1,39 +1,26 @@
 # Flutter Weather App
-
-A new Flutter project.
+![Weather App](https://cdn.discordapp.com/attachments/796185667574956063/798116025308282880/Screen_Shot_2021-01-11_at_1.07.57_AM.png)
+The source code for the Flutter Weather App at the OrionHacks I Workshop!
 
 ## Getting Started
+### Prerequisites
+- Flutter SDK
+Install the Flutter SDK at https://flutter.dev/docs/get-started/install
+- Packages
+Get your packages from https://pub.dev. The list of packages you need for this project are in the `pubspec.yaml` file. (Note: Package Versions are as of Jan 17th, 2020)
 
-### Dependencies
-#### Add the following packages to your `pubspec.yaml` file
-      cupertino_icons: ^1.0.0
-      geolocator: ^6.1.13
-      http: ^0.12.2
-      floating_search_bar: ^0.3.0
-      date_format: ^1.0.9
-      loading: ^1.0.2
-#### Enable these permissions in your `android/app/src/main\AndroidMainfest.xml` file
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-    
-#### Add the following code segment to check if your permissions are enabled
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      return Future.error('Location services are disabled.');
-    }
+### Installing
+1. Create an account at https://home.openweathermap.org/users/sign_up and get your free API KEY
+2. Clone the Repo
+`git clone https://github.com/OrionHacks/Workshop-FlutterWeatherApp.git`
+3. Install Flutter Packages
+`flutter pub get`
+4. Enter your API Key in `lib/services/apis.dart`
+`const apiKey = "[YOUR API KEY HERE]";`
+5. Run the App
+`flutter run`
 
-    permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.deniedForever) {
-      return Future.error(
-          'Location permissions are permantly denied, we cannot request permissions.');
-    }
+## Author
+#### Shrinandan Narayanan (@Shrinandan-N)
 
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission != LocationPermission.whileInUse &&
-          permission != LocationPermission.always) {
-        return Future.error(
-            'Location permissions are denied (actual value: $permission).');
-      }
-    }
+## Happy Coding!
