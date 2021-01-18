@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class APIS {
+  cosnt apiKey = "[YOUR API KEY HERE]";
+  
   Future<Map<dynamic, dynamic>> getWeatherData(String lat, String long) async {
-    String apiKey = "API KEY";
     String url =
         "https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=hourly,daily&appid=${apiKey}";
     var jsonResponse;
