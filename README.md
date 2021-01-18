@@ -11,16 +11,22 @@ Get your packages from https://pub.dev. The list of packages you need for this p
 
 ### Installing
 1. Create an account at https://home.openweathermap.org/users/sign_up and get your free API KEY
-2. Clone the Repo\
-`git clone https://github.com/OrionHacks/Workshop-FlutterWeatherApp.git`
-3. Install Flutter Packages\
-`flutter pub get`
-4. Enter your API Key in `lib/services/apis.dart`\
-```dart
-const apiKey = "[YOUR API KEY HERE]";
-```
-5. Run the App\
-`flutter run`
+2. Clone the Repo
+    ```bash
+    git clone https://github.com/OrionHacks/Workshop-FlutterWeatherApp.git
+    ```
+3. Install Flutter Packages
+    ```bash
+    flutter pub get
+    ```
+4. Enter your API Key in `lib/services/apis.dart`
+    ```dart 
+    const apiKey = "[YOUR API KEY HERE]";
+    ```
+5. Run the App
+   ```bash
+      flutter run
+      ```
 
 ## Author
 #### Shrinandan Narayanan (@Shrinandan-N)
