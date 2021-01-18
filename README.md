@@ -25,7 +25,7 @@ Get your packages from https://pub.dev. The list of packages you need for this p
     ```
 5. Run the App
    ```bash
-      flutter run
+   flutter run
       ```
 
 ## Author
